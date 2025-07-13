@@ -3,7 +3,7 @@ import React from 'react'
 import  './form.css'
 import { useState } from 'react'
 
-const Form = () => {
+const Form = (props) => {
 
     const [user, setUser]=useState({name:'', email:'',number:'',password:''})
     const {name,email,number,password}=user
@@ -49,7 +49,9 @@ const Form = () => {
             password:password,
         }
 
-        console.log(userInfo);
+        props.onFromData(userInfo)
+
+          setUser( {name:'', email:'',number:'',password:''})
         
 
     }
@@ -59,17 +61,18 @@ const Form = () => {
     const handleChange=(e)=>{
 
         const finldName=e.target.name;
-        if(finldName===name){
-           setUser( {name:e.target.value, email:'',number:'',password:''})
-        }else if(finldName===email){
 
-            setUser( {name:'', email:e.target.value,number:'',password:''})
+        if(finldName==='name'){
+           setUser( {name:e.target.value, email,number,password})
+        }else if(finldName === 'email'){
 
-        }else if(finldName === number){
-            setUser( {name:'', email:'',number:e.target.value,password:''})
-        }else if(finldName === password){
+            setUser( {name, email:e.target.value,number,password})
 
-            setUser( {name:'', email:'',number:'',password:e.target.value})
+        }else if(finldName === 'number'){
+            setUser( {name, email,number:e.target.value,password})
+        }else if(finldName === 'number'){
+
+            setUser({name, email,number,password:e.target.value})
         }
        
 
@@ -83,16 +86,16 @@ const Form = () => {
             <input onChange={handleNumberChange} type="number" name="number"  placeholder='numbe' id="number" />
             <input onChange={handlePasswordChange} type="password" name="password" id="password" />
             <input onClick={handleSubmit} type="submit" value="Login" />
-        </form> */}
+        </form> */} 
 
         <div>
 
             <form action="">
-            <input onChange={handleChange} type="text" name="" placeholder='name' id="name" />
-            <input onChange={handleChange} type="email" name="" placeholder='email' id="email" />
-            <input onChange={handleChange} type="number" name=""  placeholder='numbe' id="number" />
-            <input onChange={handleChange} type="password" name="" id="password" />
-            <input onClick={handleSubmit} type="submit" value="Login" />
+            <input value={name} onChange={handleChange} type="text" name="" placeholder='name' id="name" />
+            <input value={email} onChange={handleChange} type="email" name="" placeholder='email' id="email" />
+            <input value={number} onChange={handleChange} type="number" name=""  placeholder='numbe' id="number" />
+            <input value={password} onChange={handleChange} type="password" name="" id="password" />
+            <input  onClick={handleSubmit} type="submit" value="Login" />
         </form>
 
         </div>
