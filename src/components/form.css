@@ -1,0 +1,16 @@
+.form{
+    background-color: navajowhite;
+}
+.form form {
+    padding:20px 
+}
+
+.form form input{
+    display: block;
+    margin-bottom:10px;
+    font-size: 30px;
+    background-color: transparent;
+    color:blue;
+    outline: none;
+
+}
