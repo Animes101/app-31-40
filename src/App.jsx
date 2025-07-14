@@ -9,6 +9,7 @@ import TodoApp from './components/TodoApp'
 import NewTodo from './components/NewTodo'
 import ComplatedTodoApp from './components/ComplatedTodoApp'
 import ComplatedTodoForm from './components/ComplatedTodoForm'
+import FormikFormControl from './components/FormikFormControl';
 
 
 
@@ -101,6 +102,12 @@ function App() {
           <h1>COMPLATED TODO APP</h1>
           <ComplatedTodoApp  deletTodo={deletTodos}   todosData={coTodos} />
           <ComplatedTodoForm  onTodoData={handleNewTodoCom} />
+        </div>
+
+
+        <div>
+          <FormikFormControl />
+          
         </div>
       </div>
     </>
