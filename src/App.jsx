@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
 
 import './App.css'
@@ -62,6 +63,25 @@ function App() {
 
   }
 
+  const handleNewTodoCom=(data)=>{
+
+
+    SetCoTodos((prev)=>{
+      return [...prev, {id:uuidv4(), ...data}]
+    })
+
+
+  }
+
+  const deletTodos=(id)=>{
+
+    const filterTodos=coTodos.filter((items)=>  items.id !== id);
+
+    SetCoTodos(filterTodos)
+
+
+  }
+
 
 
   return (
@@ -79,8 +99,8 @@ function App() {
 
         <div>
           <h1>COMPLATED TODO APP</h1>
-          <ComplatedTodoApp  todosData={coTodos} />
-          <ComplatedTodoForm />
+          <ComplatedTodoApp  deletTodo={deletTodos}   todosData={coTodos} />
+          <ComplatedTodoForm  onTodoData={handleNewTodoCom} />
         </div>
       </div>
     </>

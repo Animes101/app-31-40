@@ -1,14 +1,23 @@
 import React from 'react'
 import { useState } from 'react'
 
-const ComplatedTodoForm = () => {
+const ComplatedTodoForm = (props) => {
+
+    const {onTodoData}=props;
+
     const [newTodo, setNewTodo]=useState({title:'',complated:false})
 
     const {title,complated}=newTodo;
     const handleTodoFild=(e)=>{
-      
 
-        setNewTodo({...newTodo,[e.target.name]:e.target.value})
+        const fildName=e.target.name;
+
+        if(fildName === 'title'){
+            setNewTodo({title:e.target.value, complated})
+
+        }else if(fildName === 'complated'){
+            setNewTodo({title,complated:e.target.checked})
+        }
 
         
 
@@ -17,14 +26,14 @@ const ComplatedTodoForm = () => {
     const handleNewTodo=(e)=>{
         e.preventDefault();
 
-        console.log(title, complated)
+        onTodoData(newTodo)
 
     }
   return (
     <div>
         <form  onSubmit={handleNewTodo} action="">
             <input onChange={handleTodoFild} value={title} type="text" name="title" placeholder='Title' id="title" />
-            <input onChange={handleTodoFild} value={complated} type="checkbox" name="" id="" />
+            <input onChange={handleTodoFild} value={complated} type="checkbox" name="complated" id="" />
             <input type="submit" value="New Todo" />
         </form>
     </div>

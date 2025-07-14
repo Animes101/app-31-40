@@ -3,12 +3,12 @@ import TodoCard from './TodoCard'
 
 const ComplatedTodoApp = (props) => {
 
-    const {todosData}=props
+    const {todosData,deletTodo}=props
 
 
   return (
     <div>
-        {todosData.map((items)=> <TodoCard todo={items} key={items.id} />)}
+        {todosData.map((items)=> <TodoCard  deletTodo={deletTodo} todo={items} key={items.id} />)}
 
 
     </div>
