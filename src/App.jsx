@@ -10,6 +10,8 @@ import NewTodo from './components/NewTodo'
 import ComplatedTodoApp from './components/ComplatedTodoApp'
 import ComplatedTodoForm from './components/ComplatedTodoForm'
 import FormikFormControl from './components/FormikFormControl';
+import Toggle from './components/Toggle';
+import Faq from './components/Faq';
 
 
 
@@ -109,6 +111,12 @@ function App() {
           <FormikFormControl />
           
         </div>
+
+        <div>
+          <Toggle />
+        </div>
+
+        <Faq />
       </div>
     </>
   )
